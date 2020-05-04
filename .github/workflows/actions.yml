@@ -1,7 +1,12 @@
 name: Actions workflow
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - master
+      - 'feature/*'   # matches feature/A, feature/B
+                      # doesn't match feature/A/B
+      - 'feature/**'  # matches feature/A, feature/B, feature/A/B
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
